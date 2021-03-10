@@ -56,6 +56,8 @@ final class TabController: UIViewController {
         ])
     }
     
+    /// Show proper controller depending on the selected `Tab`.
+    /// - Parameter tab: Provided `Tab`.
     private func showController(for tab: Tab) {
         switch tab {
             case .home: showController(homeController)
@@ -65,6 +67,8 @@ final class TabController: UIViewController {
         delegate?.tabControllerDidSelectTab(tab)
     }
     
+    /// Show proper controller.
+    /// - Parameter controller: The controller to be provided.
     private func showController(_ controller: UIViewController) {
         guard appearingController == nil else { return }
         
@@ -88,6 +92,7 @@ final class TabController: UIViewController {
         }
     }
     
+    /// Update additional safe area insets after adding a proper view controller.
     private func updateAdditionalSafeAreaInsets() {
         let visibleTabHeight = containerView.bounds.height - tabBarView.bounds.origin.y
         if let controller = currentController {
@@ -108,6 +113,12 @@ extension TabController {
 }
 
 extension UIViewController {
+    
+    /// Helper for removing child controller.
+    /// - Parameters:
+    ///   - controller: Controller to be removed.
+    ///   - animated: Animation toggle.
+    /// - Returns: Completion handler.
     func removeController(controller: UIViewController, animated: Bool = true) -> (() -> Void) {
         controller.willMove(toParent: nil)
         controller.beginAppearanceTransition(false, animated: animated)
@@ -119,6 +130,12 @@ extension UIViewController {
         }
     }
     
+    /// Helper for adding child controller.
+    /// - Parameters:
+    ///   - controller: Controller to be added.
+    ///   - contentView: Container view for the controller.
+    ///   - animated: Animation toggle.
+    /// - Returns: Completion handler.
     func addController(controller: UIViewController, contentView: UIView? = nil, animated: Bool = true) -> (() -> Void) {
         guard let view = contentView ?? self.view else { return {} }
         

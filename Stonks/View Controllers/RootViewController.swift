@@ -47,12 +47,14 @@ final class RootViewController: UIViewController {
         setupPlayerView()
     }
     
+    /// Perform initial setup of `TabController`.
     private func setupTabController() {
         addChild(tabController)
         view.addSubview(tabController.view)
         tabController.didMove(toParent: self)
     }
     
+    /// Setup the main `PlayerView`.
     private func setupPlayerView() {
         playerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(playerView)
@@ -67,6 +69,7 @@ final class RootViewController: UIViewController {
         NSLayoutConstraint.activate([playerViewTopAnchor, playerViewLeadingAnchor, playerViewWidthAnchor, playerViewHeightAnchor])
     }
     
+    /// Switch player to maximized mode.
     private func switchToMaxPlayerMode() {
         UIView.animate(withDuration: 0.3) {
             self.playerViewTrailingAnchor.constant = Constants.playerViewMinWidth
@@ -89,6 +92,7 @@ final class RootViewController: UIViewController {
         }
     }
     
+    /// Switch player to minimized mode.
     private func switchToMiniPlayerMode() {
         UIView.animate(withDuration: 0.3) {
             self.playerViewLeadingAnchor.constant = -self.playerViewWidthAnchor.constant
