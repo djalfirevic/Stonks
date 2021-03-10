@@ -70,7 +70,7 @@ final class TabView: UIView {
     func update(selected: Bool) {
         self.selected = selected
         
-        titleLabel.textColor = selected ? .purple : .black
+        titleLabel.textColor = selected ? .white : .darkGray
     }
     
     // MARK: - Private API
@@ -79,6 +79,7 @@ final class TabView: UIView {
     private func layout() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = tab.rawValue
+        titleLabel.textColor = .darkGray
         addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
