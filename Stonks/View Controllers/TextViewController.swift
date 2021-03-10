@@ -21,14 +21,16 @@ final class TextViewController: UIViewController {
     
     /// Main initializer.
     /// - Parameters:
+    ///   - title: Title of the controller.
     ///   - heading: Heading of the text.
     ///   - text: Body text.
     ///   - topInset: Inset used for `PlayerView`.
-    init(heading: String, text: String, topInset: CGFloat = 0) {
+    init(title: String, heading: String, text: String, topInset: CGFloat = 0) {
         self.heading = heading
         self.text = text
         self.topInset = topInset
         super.init(nibName: nil, bundle: nil)
+        self.title = title
     }
     
     required init?(coder: NSCoder) {
@@ -46,7 +48,7 @@ final class TextViewController: UIViewController {
     
     /// Layout the UI elements.
     private func layout() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         setupScrollView()
         setupTextLabel()
@@ -76,6 +78,7 @@ final class TextViewController: UIViewController {
     private func setupTextLabel() {
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.numberOfLines = 0
+        textLabel.textColor = .white
         contentView.addSubview(textLabel)
         
         let headingAttributedString = NSAttributedString(string: "\(heading)\n\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])

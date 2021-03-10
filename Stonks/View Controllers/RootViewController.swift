@@ -41,7 +41,7 @@ final class RootViewController: UIViewController {
     
     /// Layout the UI elements.
     private func layout() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         
         setupTabController()
         setupPlayerView()

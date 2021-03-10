@@ -36,6 +36,7 @@ final class PlayerView: UIView {
     
     /// Setup the player to play the stream.
     private func setup() {
+        backgroundColor = .black
         guard let url = URL(string: "https://stream.mux.com/\(Secrets.playlistId)") else { return }
         
         let player = AVPlayer(url: url)
