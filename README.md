@@ -29,4 +29,4 @@ User is presented with the home page, where he is able to see a stream playing. 
 I would go with Test-Driven Development environment, where I would start writing tests.
 I would introduce a MVVM design pattern in order to support proper unit testing.
 I took the liberty to remove `UINavigationBar` from the first screen, it was looking better without it.
-Tap ![here](https://drive.google.com/file/d/1qsIjm4mLm7Qu2KL1tyPpTjKwK7W2kUq7/view?usp=sharing) to see the demo.
+Demo: https://drive.google.com/file/d/1qsIjm4mLm7Qu2KL1tyPpTjKwK7W2kUq7/view?usp=sharing
