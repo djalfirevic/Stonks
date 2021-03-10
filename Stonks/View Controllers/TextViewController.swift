@@ -49,6 +49,7 @@ final class TextViewController: UIViewController {
     /// Layout the UI elements.
     private func layout() {
         view.backgroundColor = .black
+        edgesForExtendedLayout = []
         
         setupScrollView()
         setupTextLabel()
